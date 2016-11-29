@@ -1,0 +1,19 @@
+version: '2'
+services:
+  server:
+    environment:
+      - 'REDIS_HOST=redis'
+      - 'REDIS_PORT=5432'
+      - 'PORT=3000'
+    image: 'reference-tictactoe'
+    build:
+      context: '.'
+      dockerfile: 'Dockerfile'
+    ports:
+      - '3000:3000'
+    links:
+      - 'redis'
+  redis:
+    image: redis
+    ports:
+      - "5432:5432"
