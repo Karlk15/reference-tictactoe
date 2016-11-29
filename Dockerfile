@@ -6,3 +6,4 @@ COPY index.js .
 COPY ./test/ /code/test
 EXPOSE 3000
 CMD ["node","index.js"]
+
