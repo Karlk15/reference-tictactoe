@@ -1,9 +1,9 @@
 FROM node
 WORKDIR /code
+COPY run.js .
+COPY ./build/ .
 COPY package.json .
-RUN npm install --silent
-COPY index.js .
-COPY ./test/ /code/test
+ENV NODE_PATH=.
+RUN npm install
 EXPOSE 3000
-CMD ["node","index.js"]
-
+CMD ["node","run.js"]

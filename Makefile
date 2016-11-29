@@ -24,6 +24,6 @@ docker-test:
 	docker run -it ${IMAGE_TAG} npm test
 redis:
 	#-v flag for starting with persistent storage
-	docker run -d -p "6379:6379" -v "${PWD}/redis:/data redis"
+	docker run -d -p "5432:5432" -v "${PWD}/redis:/data redis"
 compose:
 	docker-compose up -d --build
