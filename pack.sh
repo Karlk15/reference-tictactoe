@@ -41,11 +41,12 @@ _EOF_
 
 
 cp ./Dockerfile ./build/
+cp ./package.json ./build/
 
-cd dist
+cd build
 echo Building docker image
 
-docker build -t karlk15/reference-tictactoe .
+docker build -t karlk15/reference-tictactoe:$GIT_COMMIT .
 
 rc=$?
 if [[ $rc != 0 ]] ; then
@@ -53,7 +54,7 @@ if [[ $rc != 0 ]] ; then
     exit $rc
 fi
 
-docker push karlk15/reference-tictactoe
+docker push karlk15/reference-tictactoe:$GIT_COMMIT
 rc=$?
 if [[ $rc != 0 ]] ; then
     echo "Docker push failed " $rc

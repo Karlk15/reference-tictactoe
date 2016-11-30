@@ -1,0 +1,19 @@
+version: '2'
+services:
+  server:
+    environment:
+      - 'POSTGRES_HOST=db'
+      - 'POSTGRES_PORT=5432'
+      - 'PORT=3000'
+    image: 'karlk15/reference-tictactoe'
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+      - "8080:8080"
+  db:
+    image: 'postgres'
+    environment:
+      - 'POSTGRES_PASSWORD=mysecretpassword'
+    ports:
+      - "5432:5432"
