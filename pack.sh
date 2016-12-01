@@ -47,16 +47,16 @@ cp ./runner.sh ./build/
 cd build
 echo Building docker image
 
-#docker build -t karlk15/reference-tictactoe:$GIT_COMMIT .
-docker build -t karlk15/reference-tictactoe .
+docker build -t karlk15/reference-tictactoe:$GIT_COMMIT .
+
 rc=$?
 if [[ $rc != 0 ]] ; then
     echo "Docker build failed " $rc
     exit $rc
 fi
 
-#docker push karlk15/reference-tictactoe:$GIT_COMMIT
-docker push karlk15/reference-tictactoe
+docker push karlk15/reference-tictactoe:$GIT_COMMIT
+
 rc=$?
 if [[ $rc != 0 ]] ; then
     echo "Docker push failed " $rc
