@@ -2,16 +2,19 @@ version: '2'
 services:
   server:
     environment:
-      - 'PORT=3000'
+      - PGPOST=postgres
+      - PGPORT=5432
+      - PORT=3000
     image: 'karlk15/reference-tictactoe'
     depends_on:
-      - db
+      - postgres
     ports:
       - "3000:3000"
       - "8080:8080"
-  db:
+  postgres:
     image: 'postgres'
     environment:
-      - 'POSTGRES_PASSWORD=mysecretpassword'
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysecretpassword
     ports:
       - "5432:5432"

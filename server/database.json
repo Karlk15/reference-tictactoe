@@ -3,10 +3,10 @@
     "driver": "pg",
     "user": "postgres",
     "password": "mysecretpassword",
-    "host": "localhost",
+    "host": "postgres",
     "database": "postgres",
     "schema": "postgres",
-    "port": "postgres://db:5432",
+    "port": 5432,
     "max": 10,
     "idleTimeoutMillis": 30000
   }

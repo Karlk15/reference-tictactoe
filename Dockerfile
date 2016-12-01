@@ -1,7 +1,7 @@
 FROM node
 WORKDIR /code
 COPY . .
-ENV NODE_PATH=.
+ENV NODE_PATH .
 RUN npm install --silent
 EXPOSE 3000
-CMD ["runner.sh"]
+CMD ["./runner.sh"]
