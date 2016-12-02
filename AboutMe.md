@@ -6,7 +6,7 @@
     University of Reykjavik     2015 - 
     Fjölbrautaskólinn í Garðabæ 2010 - 2015
 
-### __Work history__:
+#### __Work history__:
 
 - SportsDirect sportstore
 - Kongeparken
@@ -17,7 +17,7 @@
 - Game designing 
 - Servers
 
-### __OS:__
+#### __OS:__
     
     cpu                         = 1.6 GHz Core i5 (I5-5250U)
     memory                      = 4gb
