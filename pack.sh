@@ -39,7 +39,7 @@ cat > ./build/public/version.html << _EOF_
 </body>
 _EOF_
 
-
+# Dockerfile,package,runner copyed to build 
 cp ./Dockerfile ./build/
 cp ./package.json ./build/
 cp ./runner.sh ./build/
