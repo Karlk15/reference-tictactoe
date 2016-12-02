@@ -3,8 +3,8 @@
 
 #### __Education:__
 
-    - University of Reykjavik     2015 - 
-    - Fjölbrautaskólinn í Garðabæ 2010 - 2015
+    University of Reykjavik     2015 - 
+    Fjölbrautaskólinn í Garðabæ 2010 - 2015
 
 ### __Work history__:
 
