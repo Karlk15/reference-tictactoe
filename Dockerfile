@@ -3,5 +3,5 @@ WORKDIR /code
 COPY . .
 ENV NODE_PATH .
 RUN npm install --silent
-EXPOSE 3000
+EXPOSE 80
 CMD ["./runner.sh"]
