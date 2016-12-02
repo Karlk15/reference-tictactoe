@@ -23,7 +23,7 @@ docker-test:
 	#add '--net host' if you want to connect to build container runnin in another container on host or use docker compose with the ' command: 'npm test' '
 	docker run -it ${IMAGE_TAG} npm test
 build:
-	#-v flag for starting with persistent storage
+	# Install and run postgres docker image for development.
 	docker run -p 5432:5432 --name pg2 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 compose:
 	docker-compose up -d --build
