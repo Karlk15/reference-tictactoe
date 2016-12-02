@@ -3,18 +3,18 @@
 
 #### __Education:__
 
-    - Háskólinn í Reykjavík       2015 - 
+    - University of Reykjavik     2015 - 
     - Fjölbrautaskólinn í Garðabæ 2010 - 2015
 
 ### __Work history__:
 
-- SportsDirect íþóttavöruverslun
+- SportsDirect sportstore
 - Kongeparken
-- Fimleika Þjálfari
+- Gymnastic coach
 
 #### __Software Type:__
 
-- game designing 
+- Game designing 
 - Servers
 
 ### __OS:__
