@@ -3,8 +3,8 @@
 
 #### __Education:__
 
-    - Háskólinn í Reykjavík 2015 - 
-    - Fjölbrautaskólinn í Garðabæ 2010-2015
+    - Háskólinn í Reykjavík       2015 - 
+    - Fjölbrautaskólinn í Garðabæ 2010 - 2015
 
 ### __Work history__:
 
