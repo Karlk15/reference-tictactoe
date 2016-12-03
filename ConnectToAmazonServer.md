@@ -20,7 +20,9 @@
 ## 3) To Install the AWS CLI Using pip I used
 
     $ sudo pip install awscli
+    
    Error came which was fixed with --ignore-installed option
+   
     $ sudo pip install awscli --ignore-installed six
 
 ## 4) To work around this issue,  I use which pip to locate the executable, and then invoke it directly by using an absolute path when installing the AWS CLI:
