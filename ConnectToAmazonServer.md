@@ -48,9 +48,12 @@
 
 ## 7) Where I saved my-aws-key-pairs I need to go to and run
 
-    $ chmod 400 my-ec2-key-pair.pem if I didn´t do it already
-   than
+    $ chmod 400 my-ec2-key-pair.pem 
+    
+    if I didn´t do it already than
+   
     $ ssh -i my-ec2-key-pair.pem ec2-user@<EC2-INSTANCE-PUBLIC-IP-ADDRESS>
+    
       ssh -i KarlK15.pem ec2-user@52.213.251.37
 
 ## 7.5)
