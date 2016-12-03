@@ -10,8 +10,11 @@
    instead of following Amazon instruction to get pip and python
    I read that:
    OSX 10. should include python check
+   
     $ python --version = Python 2.7.12
+    
    install pip using
+   
     $ sudo easy_install pip = pip 9.0.1
 
 ## 3) To Install the AWS CLI Using pip I used
