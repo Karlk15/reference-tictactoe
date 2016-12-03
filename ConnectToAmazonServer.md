@@ -50,7 +50,7 @@
 
     $ chmod 400 my-ec2-key-pair.pem 
     
-    if I didn´t do it already than
+   if I didn´t do it already than
    
     $ ssh -i my-ec2-key-pair.pem ec2-user@<EC2-INSTANCE-PUBLIC-IP-ADDRESS>
     
@@ -63,39 +63,59 @@
 ## 8) Now I am fully working Linux server running in the AWS cloud.
 
    I want to install Docker on it.
+   
     $ sudo yum update -y
+    
     $ sudo yum install -y docker
+    
     $ sudo service docker start
 
 ## 9) To be able to run cmds without sudo:
 
     $ sudo usermod -a -G docker ec2-user
+    
     $ exit
+    
    than log in again
+   
     $ ssh -i KarlK15.pem ec2-user@52.213.251.37
 
 ## 10)To check if I have some images
 
     $ docker ps
+    
     $ docker info (returns lost info about my docker install without errors)
+    
    should return empty so to get image lets run
+   
     $ docker run -d -p 80:5000 training/webapp:latest python app.py
+    
    The -p 80:5000 flag in the command above tells Docker to link port 5000 on the
    Docker container to port 80 on the EC Instance.
    You can test that the Docker image is running as follows: and
+   
     $ docker ps
+    
    To test the docker image run
-    $ curl http://localhost (it should return)
-      Hello world!
-    then got to web and enter the id http://52.213.251.37/
-      Hello world!
+
+   $ curl http://localhost (it should return)
+
+   Hello world!
+
+   then got to web and enter the id http://52.213.251.37/
+
+   Hello world!
       
 ## 11)Sækja docker-compose
 
     $ curl -L "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    
     $ chmod +x /usr/local/bin/docker-compose
+    
     $ docker-compose --version
+    
       docker-compose version: 1.9.0
+      
 ## 12)Sækja git til að geta clonað af github
 
     $ sudo yum install git-all
@@ -107,6 +127,7 @@
 ## 14)ath hvort verkefnið sé komið
 
    $ ls
+   
    $ cd reference-tictactoe
 
 ## 15)Breyta öllum 3000 ports í 80
@@ -118,9 +139,13 @@
 ## 15) Prófa að keyra Image up innskráður ssh -i KarlK15.pem ec2-user@52.213.251.37
 
    $ cd reference-tictactoe
+   
    $ docker-compose up
-   ef það virkar ekki hreinsaðu myndirnar og Gáma
+   
+  ef það virkar ekki hreinsaðu myndirnar og Gáma
+  
    $ ./cleanImages.sh
+   
    $ ./cleanContainer.sh
 
 ## 16) Keyra upp Chrome og slá inn slóðina á public key
