@@ -3,24 +3,32 @@
 
 #### __Education:__
 
-- Fjölbrautaskólinn í Garðabæ
+    University of Reykjavik     2015 - 
+    Fjölbrautaskólinn í Garðabæ 2010 - 2015
 
-### __Work history__:
+#### __Work history__:
 
-- SportsDirect íþóttavöruverslun
-- Kongeparken 
+- SportsDirect sportstore
+- Kongeparken
 - Gymnastic coach
 
-### __OS:__
+#### __Software Type:__
 
+- Game designing 
+- Servers
+
+#### __OS:__
+    
     cpu                         = 1.6 GHz Core i5 (I5-5250U)
     memory                      = 4gb
     ssd/hd size                 = 128gb
     operating system & version  = macOS Sierra
-    
-#### __Software Type:__
+  
+#### __What do I expect to get from this course:__
 
-- Playing with unity 
-- Interested in Servers
-    
+- To gain deeper understanding to servers and how they work
+- To become expert in continues delivery
+- To drink alot of coffee and get alot of issues to learn from
+- To have fun
+
 
