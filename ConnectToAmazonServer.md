@@ -37,8 +37,11 @@
 
     $ aws congifure
    and use my Access key ID,Secret access key
+   
       AKIAIT76BISPAWZQLXVA
+      
       0iT1LM1M6ShaKP5Qs4wT3jGygj/N+u0C6Z+fihwO
+      
       eu-west-1
 
 ## 7) Where I saved my-aws-key-pairs I need to go to and run
