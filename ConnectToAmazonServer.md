@@ -1,4 +1,3 @@
-
 ### 1) Key created and downloaded then set the permissions of your private key file so that only you can read it with the
 
   $ chmod 400 your_user_name-key-pair-region_name.pem
