@@ -40,12 +40,6 @@
 
   and use my Access key ID,Secret access key
 
-  AKIAIT76BISPAWZQLXVA
-
-  0iT1LM1M6ShaKP5Qs4wT3jGygj/N+u0C6Z+fihwO
-
-  eu-west-1
-
 ### 7) Where I saved my-aws-key-pairs I need to go to and run
 
   $ chmod 400 my-ec2-key-pair.pem
@@ -54,7 +48,7 @@
 
   $ ssh -i my-ec2-key-pair.pem ec2-user@<EC2-INSTANCE-PUBLIC-IP-ADDRESS>
 
-  ssh -i KarlK15.pem ec2-user@52.213.251.37
+  ssh -i KarlK15.pem ec2-user@52.213.251.37                                     eftir að setja rétta id
 
 ### 7.5) http://www.ybrikman.com/writing/2015/11/11/running-docker-aws-ground-up/#installing-docker
 
@@ -75,7 +69,7 @@ AFTER LOG IN
 
   than log in again
 
-  $ ssh -i KarlK15.pem ec2-user@52.213.251.37
+  $ ssh -i KarlK15.pem ec2-user@52.213.251.37                                   eftir að setja rétta id
 
 ### 10)To check if I have some images
 
@@ -99,7 +93,7 @@ should return empty so to get image lets run
 
     then got to web and enter the id
 
-    http://52.213.251.37/
+    http://52.213.251.37/                                                       eftir að setja rétta id
 
     Hello world!
 
@@ -133,7 +127,7 @@ should return empty so to get image lets run
 
 ### 17) Prófa að keyra Image up innskráður
 
-  $ ssh -i KarlK15.pem ec2-user@52.213.251.37
+  $ ssh -i KarlK15.pem ec2-user@52.213.251.37                                   eftir að setja rétta id
 
   $ cd reference-tictactoe
 
@@ -147,4 +141,4 @@ should return empty so to get image lets run
 
 ### 18) Keyra upp Chrome og slá inn slóðina á public key
 
-  52.213.251.37
+  52.213.251.37                                                                 eftir að setja rétta id
