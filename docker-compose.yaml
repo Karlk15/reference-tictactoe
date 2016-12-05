@@ -2,19 +2,19 @@ version: '2'
 services:
   server:
     environment:
-      - PGPOST=postgres
-      - PGPORT=5432
-      - PORT=80
-    image: 'karlk15/reference-tictactoe'
+      - PGPOST=postgres                      #
+      - PGPORT=5432                          # postgres port
+      - PORT=80                              # Amazon Instance runs on port 80
+    image: 'karlk15/reference-tictactoe'     # Docker image
     depends_on:
       - postgres
     ports:
-      - "80:80"
-      - "8080:8080"
+      - "80:80"                              # Amazon Instance runs on port 80
+      - "8080:8080"                          # listens on port 8080
   postgres:
     image: 'postgres'
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_USER=postgres               # set User as postgres
+      - POSTGRES_PASSWORD=mysecretpassword   # set postgres password as mysecretpassword
     ports:
-      - "5432:5432"
+      - "5432:5432"                          # postgres listens on port 5432
