@@ -1,144 +1,144 @@
 ### 1) Key created and downloaded then set the permissions of your private key file so that only you can read it with the
 
-  $ chmod 400 your_user_name-key-pair-region_name.pem
+    $ chmod 400 your_user_name-key-pair-region_name.pem
 
-  $ chmod 400 karlk15.pem
+    $ chmod 400 karlk15.pem
 
 ### 2) Next I Installed the AWS Command Line Interface instead of following Amazon instruction to get pip and python I read that:
 
   OSX 10. should include python check
 
-  $ python --version = Python 2.7.12
+    $ python --version = Python 2.7.12
 
-  install pip using
+    install pip using
 
-  $ sudo easy_install pip = pip 9.0.1
+    $ sudo easy_install pip = pip 9.0.1
 
 ### 3) To Install the AWS CLI Using pip I used
 
-  $ sudo pip install awscli
+    $ sudo pip install awscli
 
   __Error came which was fixed with --ignore-installed option__
 
-  $ sudo pip install awscli --ignore-installed six
+    $ sudo pip install awscli --ignore-installed six
 
 ### 4) To work around this issue,  I use which pip to locate the executable, and then invoke it directly by using an absolute path when installing the AWS CLI:
 
-  $ which pip
+    $ which pip
 
     /usr/local/bin/pip
 
-  $ sudo /usr/local/bin/pip install awscli
+    $ sudo /usr/local/bin/pip install awscli
 
 ### 5) To upgrade an existing AWS CLI installation, I used the --upgrade option:
 
-  $ sudo pip install --upgrade awscli
+    $ sudo pip install --upgrade awscli
 
 ### 6) next I needed to configure
 
-  $ aws congifure
+    $ aws congifure
 
   and use my Access key ID,Secret access key
 
 ### 7) Where I saved my-aws-key-pairs I need to go to and run
 
-  $ chmod 400 my-ec2-key-pair.pem
+    $ chmod 400 my-ec2-key-pair.pem
 
   if I didn´t do it already than
 
-  $ ssh -i my-ec2-key-pair.pem ec2-user@<EC2-INSTANCE-PUBLIC-IP-ADDRESS>
+    $ ssh -i my-ec2-key-pair.pem ec2-user@<EC2-INSTANCE-PUBLIC-IP-ADDRESS>
   t.d
-  ssh -i KarlK15.pem ec2-user@52.213.251.37
+    ssh -i KarlK15.pem ec2-user@52.213.251.37
 
 ### 7.5) http://www.ybrikman.com/writing/2015/11/11/running-docker-aws-ground-up/#installing-docker
 
 AFTER LOG IN
 ### 8) Now I am fully working Linux server running in the AWS cloud. I want to install Docker on it.
 
-  $ sudo yum update -y
+    $ sudo yum update -y
 
-  $ sudo yum install -y docker
+    $ sudo yum install -y docker
 
-  $ sudo service docker start
+    $ sudo service docker start
 
 ### 9) To be able to run cmds without sudo:
 
-  $ sudo usermod -a -G docker ec2-user
+    $ sudo usermod -a -G docker ec2-user
 
-  $ exit
+    $ exit
 
   than log in again t.d
 
-  $ ssh -i KarlK15.pem ec2-user@52.213.251.37
+    $ ssh -i KarlK15.pem ec2-user@52.213.251.37
 
 ### 10) To check if I have some images
 
-  $ docker ps
+    $ docker ps
 
-  $ docker info (returns lost info about my docker install without errors)
+    $ docker info (returns lost info about my docker install without errors)
 
 should return empty so to get image lets run
 
-  $ docker run -d -p 80:5000 training/webapp:latest python app.py
+    $ docker run -d -p 80:5000 training/webapp:latest python app.py
 
   The -p 80:5000 flag in the command above tells Docker to link port 5000 on the Docker container to port 80 on the EC Instance. You can test that the Docker image is running as follows:
 
-  $ docker ps
+    $ docker ps
 
   To test the docker image run
 
-  $ curl http://localhost (it should return)
+    $ curl http://localhost (it should return)
 
-    Hello world!
+      Hello world!
 
-    then got to web and enter the id
+      then got to web and enter the id
 
-    t.d http://52.213.251.37/
+      t.d http://52.213.251.37/
 
-    Hello world!
+      Hello world!
 
 ### 11)get docker-compose
 
-  $ curl -L "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    $ curl -L "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
-  $ chmod +x /usr/local/bin/docker-compose
+    $ chmod +x /usr/local/bin/docker-compose
 
-  $ docker-compose --version
+    $ docker-compose --version
 
 ### docker-compose version: 1.9.0
 
 ### 12) Get git to make clone from github available
 
-  $ sudo yum install git-all
+    $ sudo yum install git-all
 
 ### 13) Change all 3000 ports to 80
 
 ### 14) Build to get new Image
 
-  $ ./pack.sh
+    $ ./pack.sh
 
 ### 15) Næst sækja nyjustu myndina á Amazon serverinn með því að fara inn í verkerfmið reference-tictactoe og keyra skriftuna fyrir neðan
 
-  $ scp -o StrictHostKeyChecking=no -i "../../KarlUser-key-pair-eu-west-1.pem" ./docker-compose.yaml ec2-user@52.208.180.163:~/docker-compose.yaml
+    $ scp -o StrictHostKeyChecking=no -i "../../KarlUser-key-pair-eu-west-1.pem" ./docker-compose.yaml ec2-user@52.208.180.163:~/docker-compose.yaml
 
 
 ### 16) Chech if docker-compose.yml
 
-  $ ls
+    $ ls
     - docker-compose.yml
 
 ### 17) Run up images logged in
 
   t.d
-  $ ssh -i KarlK15.pem ec2-user@52.213.251.37
+    $ ssh -i KarlK15.pem ec2-user@52.213.251.37
 
-  $ docker-compose up
+    $ docker-compose up
 
   If this does not work try to clean containers and images
 
-  $ ./cleanImages.sh
+    $ ./cleanImages.sh
 
-  $ ./cleanContainer.sh
+    $ ./cleanContainer.sh
 
 ### 18) Run up in Web with public key
 
@@ -147,40 +147,45 @@ should return empty so to get image lets run
 
 ### 19) Connect to ubuntu server and Installs
 
-  $ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-  $ sudo apt-get install -y nodejs
-  $ node -v
-  $ npm -v
-  $ sudo apt-get install git-all
-  $ sudo apt-get update
-  $ sudo apt-get install apt-transport-https ca-certificates
+    $ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    $ sudo apt-get install -y nodejs
+    $ node -v
+    $ npm -v
+    $ sudo apt-get install git-all
+    $ sudo apt-get update
+    $ sudo apt-get install apt-transport-https ca-certificates
 
-  __Add the new GPG key. This commands downloads the key with the ID
+  Add the new GPG key. This commands downloads the key with the ID
   58118E89F3A912897C070ADBF76221572C52609D from the keyserver hkp://ha.pool.sks-keyservers.net:80
-  and adds it to the adv keychain. For more info, see the output of man apt-key.__
+  and adds it to the adv keychain. For more info, see the output of man apt-key.
 
-  $ sudo apt-key adv \
-                 --keyserver hkp://ha.pool.sks-keyservers.net:80 \
-                 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+    $ sudo apt-key adv \
+                   --keyserver hkp://ha.pool.sks-keyservers.net:80 \
+                   --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 
-  __If a new version of docker is deployed this will get it__
-  $ echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
-  __Update the APT package index.__
-  $ sudo apt-get update
-  $ sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
-  $ sudo apt-get install -y docker
-  $ sudo service docker start
-  $ sudo service jenkins restart
+    If a new version of docker is deployed this will get it
 
-  $ sudo groupadd docker               -groupdd should exists but nice to check
-  $ sudo gpasswd -a jenkins docker     -adds jenkins to docker group so jenkins does not use sudo
-  $ sudo service docker restart
-  $ npm install -g nodemon            
-  $ npm install -g create-react-app
+    $ echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
+
+    Update the APT package index.
+
+    $ sudo apt-get update
+    $ sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
+    $ sudo apt-get install -y docker
+    $ sudo service docker start
+    $ sudo service jenkins restart
+
+    $ sudo groupadd docker               -groupdd should exists but nice to check
+    $ sudo gpasswd -a jenkins docker     -adds jenkins to docker group so jenkins does not use sudo
+    $ sudo service docker restart
+    $ sudo gpasswd -a jenkins docker
+    $ sudo service docker restart
+    $ npm install -g nodemon            
+    $ npm install -g create-react-app
 
 ### 20) Nice to change password on ubuntu server
 
-  $ passwd
+    $ passwd
 
 ### 22) Commands in jenkins
 
