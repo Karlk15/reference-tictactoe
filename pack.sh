@@ -39,10 +39,10 @@ cat > ./build/public/version.html << _EOF_
 </body>
 _EOF_
 
-# Dockerfile,package,runner copyed to build 
+# Dockerfile,package,runner copyed to build
 cp ./Dockerfile ./build/
 cp ./package.json ./build/
-cp ./runner.sh ./build/
+cp ./scripts/runner.sh ./build/
 
 cd build
 echo Building docker image
