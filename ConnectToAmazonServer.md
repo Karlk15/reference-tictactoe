@@ -144,14 +144,36 @@ should return empty so to get image lets run
   52.213.251.37                                                                 eftir að setja rétta id
 
 
-### 19) tengjast Ubuntu server
+### 19) tengjast Ubuntu server og installa eftirfarandi
 
-### 20) breyta um password á ubuntu server
+  $ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+  $ sudo apt-get install -y nodejs
+  $ node -v
+  $ npm -v
+  $ sudo apt-get install git-all
+  $ sudo apt-get update
+  $ sudo apt-get install apt-transport-https ca-certificates
+  $ sudo apt-key adv \
+                 --keyserver hkp://ha.pool.sks-keyservers.net:80 \
+                 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+  $ echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
+  $ sudo apt-get update
+  $ sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
+  $ sudo apt-get install -y docker
+  $ sudo service docker start
+  $ sudo service jenkins restart
+  $ sudo groupadd docker
+  $ sudo gpasswd -a jenkins docker
+  $ sudo service docker restart
+
+### 20) fínt að breyta um password á ubuntu server
+
   $ passwd
   $ npm install -g nodemon
   $ npm install -g create-react-app
 
-### 21) skiparnir á jenkins
+### 22) skiparnir á jenkins
+
     git clean -dfx
     git stash
     rm -rf node_modules
@@ -160,5 +182,3 @@ should return empty so to get image lets run
     npm install
     cd ..
     ./pack.sh
-
-### 22)
