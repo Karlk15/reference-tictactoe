@@ -4,3 +4,6 @@
 /build
 /.idea/
 todo.md
+*.pem
+loginServers
+dockerCtoAserver.sh
