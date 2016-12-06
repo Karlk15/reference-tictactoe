@@ -117,19 +117,19 @@ should return empty so to get image lets run
 
   $ ./pack.sh
 
-### 15)Næst er að clona verkefnið af GitHub
+### 15)Næst sækja nyjustu myndina á Amazon serverinn með því að fara inn í verkerfmið reference-tictactoe og keyra skriftuna fyrir neðan
 
-  $ git clone https://github.com/Karlk15/reference-tictactoe.git
+  $ scp -o StrictHostKeyChecking=no -i "../../KarlUser-key-pair-eu-west-1.pem" ./docker-compose.yaml ec2-user@52.208.180.163:~/docker-compose.yaml
+
 
 ### 16)ath hvort verkefnið sé komið
 
   $ ls
+    - docker-compose.yml
 
 ### 17) Prófa að keyra Image up innskráður
 
   $ ssh -i KarlK15.pem ec2-user@52.213.251.37                                   eftir að setja rétta id
-
-  $ cd reference-tictactoe
 
   $ docker-compose up
 
@@ -142,3 +142,23 @@ should return empty so to get image lets run
 ### 18) Keyra upp Chrome og slá inn slóðina á public key
 
   52.213.251.37                                                                 eftir að setja rétta id
+
+
+### 19) tengjast Ubuntu server
+
+### 20) breyta um password á ubuntu server
+  $ passwd
+  $ npm install -g nodemon
+  $ npm install -g create-react-app
+
+### 21) skiparnir á jenkins
+    git clean -dfx
+    git stash
+    rm -rf node_modules
+    npm install
+    cd client
+    npm install
+    cd ..
+    ./pack.sh
+
+### 22)
