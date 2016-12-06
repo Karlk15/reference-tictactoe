@@ -12,8 +12,8 @@ function serverModule(injected) {
     const SocketIo = require('socket.io');
     const Postgres = require('./db/postgres');
     const DbConfig = require('./database.json');
-
-    const dbConfig = DbConfig['dev'];
+    /*process.env.NODE_ENV handles environments if there is no than it chooses dev */
+    const dbConfig = DbConfig[process.env.NODE_ENV || 'dev'];
 
     const ChatAppContext = require('./socket-app/server-app-context');
 

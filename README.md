@@ -50,6 +50,7 @@ npm run test
 In another terminal window:
 ```
 cd client
+npm install
 npm run start
 ```
 
@@ -87,4 +88,3 @@ achieving near-linear scaling of servers in clustered environments is a concern.
 
 Note that transaction support, error handling and logging are incomplete, and many other details that would be required in
 production-ready clustered applications are not present. One such is persistent user sessions.
-
