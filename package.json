@@ -1,6 +1,7 @@
 {
   "name": "an-outlandish-mean-app",
   "version": "1.0.0",
+  "author":"karlk15",
   "description": "Base for a simple nodejs server",
   "private": true,
   "main": "run.js",
