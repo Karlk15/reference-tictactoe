@@ -2,7 +2,7 @@ version: '2'
 services:
   server:
     environment:
-      - PGPOST=postgres                      #
+      - PGPOST=NODE_ENV                      # NODE_ENV production environment
       - PGPORT=5432                          # postgres port
       - PORT=80                              # Amazon Instance runs on port 80
     image: 'karlk15/reference-tictactoe'     # Docker image
