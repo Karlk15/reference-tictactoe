@@ -47,8 +47,8 @@
   if I didn´t do it already than
 
   $ ssh -i my-ec2-key-pair.pem ec2-user@<EC2-INSTANCE-PUBLIC-IP-ADDRESS>
-
-  ssh -i KarlK15.pem ec2-user@52.213.251.37                                     eftir að setja rétta id
+  t.d
+  ssh -i KarlK15.pem ec2-user@52.213.251.37
 
 ### 7.5) http://www.ybrikman.com/writing/2015/11/11/running-docker-aws-ground-up/#installing-docker
 
@@ -67,11 +67,11 @@ AFTER LOG IN
 
   $ exit
 
-  than log in again
+  than log in again t.d
 
-  $ ssh -i KarlK15.pem ec2-user@52.213.251.37                                   eftir að setja rétta id
+  $ ssh -i KarlK15.pem ec2-user@52.213.251.37
 
-### 10)To check if I have some images
+### 10) To check if I have some images
 
   $ docker ps
 
@@ -93,11 +93,11 @@ should return empty so to get image lets run
 
     then got to web and enter the id
 
-    http://52.213.251.37/                                                       eftir að setja rétta id
+    t.d http://52.213.251.37/
 
     Hello world!
 
-### 11)Sækja docker-compose
+### 11)get docker-compose
 
   $ curl -L "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
@@ -107,44 +107,45 @@ should return empty so to get image lets run
 
 ### docker-compose version: 1.9.0
 
-### 12)Sækja git til að geta clonað af github
+### 12) Get git to make clone from github available
 
   $ sudo yum install git-all
 
-### 13)Breyta öllum 3000 ports í 80
+### 13) Change all 3000 ports to 80
 
-### 14)byggja upp verkefnið aftur með breytingum og fá nytt image í local ekki á server
+### 14) Build to get new Image
 
   $ ./pack.sh
 
-### 15)Næst sækja nyjustu myndina á Amazon serverinn með því að fara inn í verkerfmið reference-tictactoe og keyra skriftuna fyrir neðan
+### 15) Næst sækja nyjustu myndina á Amazon serverinn með því að fara inn í verkerfmið reference-tictactoe og keyra skriftuna fyrir neðan
 
   $ scp -o StrictHostKeyChecking=no -i "../../KarlUser-key-pair-eu-west-1.pem" ./docker-compose.yaml ec2-user@52.208.180.163:~/docker-compose.yaml
 
 
-### 16)ath hvort verkefnið sé komið
+### 16) Chech if docker-compose.yml
 
   $ ls
     - docker-compose.yml
 
-### 17) Prófa að keyra Image up innskráður
+### 17) Run up images logged in
 
-  $ ssh -i KarlK15.pem ec2-user@52.213.251.37                                   eftir að setja rétta id
+  t.d
+  $ ssh -i KarlK15.pem ec2-user@52.213.251.37
 
   $ docker-compose up
 
-  ef það virkar ekki hreinsaðu myndirnar og Gáma
+  If this does not work try to clean containers and images
 
   $ ./cleanImages.sh
 
   $ ./cleanContainer.sh
 
-### 18) Keyra upp Chrome og slá inn slóðina á public key
+### 18) Run up in Web with public key
 
-  52.213.251.37                                                                 eftir að setja rétta id
+  t.d 52.213.251.37
 
 
-### 19) tengjast Ubuntu server og installa eftirfarandi
+### 19) Connect to ubuntu server and Installs
 
   $ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
   $ sudo apt-get install -y nodejs
@@ -153,26 +154,35 @@ should return empty so to get image lets run
   $ sudo apt-get install git-all
   $ sudo apt-get update
   $ sudo apt-get install apt-transport-https ca-certificates
+
+  __Add the new GPG key. This commands downloads the key with the ID
+  58118E89F3A912897C070ADBF76221572C52609D from the keyserver hkp://ha.pool.sks-keyservers.net:80
+  and adds it to the adv keychain. For more info, see the output of man apt-key.__
+
   $ sudo apt-key adv \
                  --keyserver hkp://ha.pool.sks-keyservers.net:80 \
                  --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+  __If a new version of docker is deployed this will get it__
   $ echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
+  __Update the APT package index.__
   $ sudo apt-get update
   $ sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
   $ sudo apt-get install -y docker
   $ sudo service docker start
   $ sudo service jenkins restart
-  $ sudo groupadd docker
-  $ sudo gpasswd -a jenkins docker
+
+  $ sudo groupadd docker               -groupdd should exists but nice to check
+  $ sudo gpasswd -a jenkins docker     -adds jenkins to docker group so jenkins does not use sudo
   $ sudo service docker restart
-
-### 20) fínt að breyta um password á ubuntu server
-
-  $ passwd
-  $ npm install -g nodemon
+  $ npm install -g nodemon            
   $ npm install -g create-react-app
 
-### 22) skiparnir á jenkins
+### 20) Nice to change password on ubuntu server
+
+  $ passwd
+
+### 22) Commands in jenkins
 
     git clean -dfx
     git stash
