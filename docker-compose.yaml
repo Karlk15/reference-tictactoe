@@ -2,17 +2,17 @@ version: '2'
 services:
   server:
     environment:
-      - PGPOST=NODE_ENV                      # NODE_ENV production environment
+      - PGPOST=NODE_ENV                      # NODE_ENV production environment vantar eh fix
       - PGPORT=5432                          # postgres port
       - PORT=80                              # Amazon Instance runs on port 80
-    image: 'karlk15/reference-tictactoe'     # Docker image
+    image: 'karlk15/reference-tictactoe:${GIT_COMMIT}'     # Docker image
     depends_on:
       - postgres
     ports:
       - "80:80"                              # Amazon Instance runs on port 80
       - "8080:8080"                          # listens on port 8080
   postgres:
-    image: 'postgres'
+    image: 'postgres'                        # image running on db
     environment:
       - POSTGRES_USER=postgres               # set User as postgres
       - POSTGRES_PASSWORD=mysecretpassword   # set postgres password as mysecretpassword
