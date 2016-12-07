@@ -25,6 +25,9 @@ cat > ./build/githash.txt <<_EOF_
 $GIT_COMMIT
 _EOF_
 
+cat > ./build/.env <<_EOF_
+GIT_COMMIT=$GIT_COMMIT
+_EOF_
 
 mkdir ./build/public
 
@@ -49,7 +52,7 @@ cp ./scripts/runner.sh ./build/
 cd build
 echo Building docker image
 #taka sudo ef eg get seinna
-sudo docker build -t karlk15/reference-tictactoe:$GIT_COMMIT .
+docker build -t karlk15/reference-tictactoe:$GIT_COMMIT .
 
 rc=$?
 if [[ $rc != 0 ]] ; then
@@ -57,7 +60,7 @@ if [[ $rc != 0 ]] ; then
     exit $rc
 fi
 
-sudo docker push karlk15/reference-tictactoe:$GIT_COMMIT
+docker push karlk15/reference-tictactoe:$GIT_COMMIT
 
 rc=$?
 if [[ $rc != 0 ]] ; then
