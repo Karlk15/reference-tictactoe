@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -e
   yum update -y
   yum install -y docker
@@ -10,8 +11,8 @@ set -e
   docker-compose up
 exit 0
 
-
-#TODO ___________________________________________________________________________________________________________________________________________________________
+#########TODO COMMENT#####
+#TODO ___________fix_________As__________SOON_________AS______________POSSIBLE______________________________
 SECURITY_GROUP_ID=$(aws ec2 create-security-group --group-name MySecurityGroup --description "My security group")
 SECURITY_GROUP_NAME=$(KarlUser-key-pair-eu-west-1.pem)
 INSTANCE_ID=$(aws ec2 run-instances  --user-data file://ec2-instance-init.sh --image-id ami-9398d3e0 --security-group-ids ${SECURITY_GROUP_ID} --count 1 --instance-type t2.micro --key-name ${SECURITY_GROUP_NAME} --query 'Instances[0].InstanceId'  --output=text)

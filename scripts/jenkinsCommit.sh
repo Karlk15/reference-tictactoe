@@ -4,7 +4,7 @@ set -e
   git stash             # Stash the changes in a dirty working directory away
   rm -rf node_modules   # Remove node_modules from root
   npm install           # installs npm
-  cd client
+  cd client             # enters client 
   rm -rf node_modules   # Remove node_modules from client
   npm install           # installs npm should only be localy
   cd ..                 # steps out of client

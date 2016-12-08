@@ -119,7 +119,7 @@ should return empty so to get image lets run
 
 ### 15) Næst sækja nyjustu myndina á Amazon serverinn með því að fara inn í verkerfmið reference-tictactoe og keyra skriftuna fyrir neðan
 
-    $ scp -o StrictHostKeyChecking=no -i "../../KarlUser-key-pair-eu-west-1.pem" ./docker-compose.yaml ec2-user@52.208.180.163:~/docker-compose.yaml
+    $ scp -o StrictHostKeyChecking=no -i "location+name.pem key" ./docker-compose.yaml ec2-user@52.208.180.163:~/docker-compose.yaml
 
 
 ### 16) Chech if docker-compose.yml
@@ -143,7 +143,6 @@ should return empty so to get image lets run
 ### 18) Run up in Web with public key
 
   t.d 52.213.251.37
-
 
 ### 19) Connect to ubuntu server and Installs
 
