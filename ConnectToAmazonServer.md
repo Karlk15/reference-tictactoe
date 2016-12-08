@@ -187,13 +187,37 @@ should return empty so to get image lets run
 
     $ passwd
 
-### 22) Commands in jenkins
+### 21) logged in ubuntu server give jenkins push permissions
 
-    git clean -dfx
-    git stash
-    rm -rf node_modules
-    npm install
-    cd client
-    npm install
-    cd ..
-    ./pack.sh
+    $ sudo su jenkins
+    $ docker login
+
+### 22) Create script in aws server that runs docker-compose up
+
+      name it --> docker-compose-and-run.sh
+
+### 23) Create new project in jenkins for deploy
+
+      add execute shell and add cmds
+      ssh -o StrictHostKeyChecking=no -i "{SECURITY_GROUP_NAME}.pem" -f ec2-user@${INSTANCE_PUBLIC_NAME} "docker-compose-and-run.sh"
+
+### 24) copy {INSTANCE_PUBLIC_NAME} into ubuntu server with cmd
+
+    $ scp -o StrictHostKeyChecking=no "{INSTANCE_PUBLIC_NAME}"  ubuntu@{IP_ADDRESS}:~/{INSTANCE_PUBLIC_NAME}.pem
+
+### 25) log in to ubuntu server and move {INSTANCE_PUBLIC_NAME}.pem to right position
+
+      sudo {INSTANCE_PUBLIC_NAME}.pem  /var/lib/jenkins/workspace/TicTacToe_Deploy
+      to see the owner run cmd
+      ls -l {DIRECTORY} then make jenkins the owner
+      $ sudo chown jenkins:jenkins /var/lib/jenkins/workspace/TicTacToe_Deploy/{INSTANCE_PUBLIC_NAME}.pem
+
+### 26) make jenkins build when changes is pushed to github
+        - go to configure and select box that is called build when changes is pushed to github
+        - go to github repository and into settings
+        - go to integrations & services
+        - click add services and choose jenkins(Github plugin)
+        - follow instructions about how to set the Jenkins hook url
+        - click update services
+        - then in right corner click Test service
+        Your should now see jenkins starting on jenkins homepage
