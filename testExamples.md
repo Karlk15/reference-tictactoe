@@ -55,15 +55,23 @@
 - __Then__ [ X Won]
 
 ##Not a draw if last move was a winning move
-- __Given__ X|O|X
+- __Given__ 
+
+            X|O|X
+
             O|X|X
+            
             O|O|
 - __When__ [ Place(1,2,X)]
 - __Then__ [X Won]
 
 ##Draw on last move
-- __Given__ O|X|X
+- __Given__ 
+
+            O|X|X
+            
             X|X|O
+            
             O|O|
 - __When__ [ Place(2,2,X)]
 - __Then__ [Draw message] shows up
