@@ -7,3 +7,8 @@ todo.md
 *.pem
 loginServers
 dockerCtoAserver.sh
+
+#logs
+logs
+*.log
+npm-debug.log*
