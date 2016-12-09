@@ -9,6 +9,6 @@ set -e
   npm install           # installs npm should only be localy
   cd ..                 # steps out of client
   ./pack.sh             # run pack script
-  scp -o StrictHostKeyChecking=no -i "~/var/lib/jenkins/workspace/TicTacToe_Deploy/KarlUser-key-pair-eu-west-1.pem" ./docker-compose.yaml ec2-user@52.208.180.163:~/docker-compose.yaml  #jenkins cp's docker-compose to aws server
-  scp -o StrictHostKeyChecking=no -i "~/var/lib/jenkins/workspace/TicTacToe_Deploy/KarlUser-key-pair-eu-west-1.pem" ./scripts/docker-compose-and-run.sh ec2-user@52.208.180.163:~/docker-compose-and-run.sh  #jenkins cp's docker-compose-and-run to aws server
+  scp -o StrictHostKeyChecking=no -i "~/workspace/TicTacToe_Deploy/KarlUser-key-pair-eu-west-1.pem" ./docker-compose.yaml ec2-user@52.208.180.163:~/docker-compose.yaml  #jenkins cp's docker-compose to aws server
+  scp -o StrictHostKeyChecking=no -i "~/workspace/TicTacToe_Deploy/KarlUser-key-pair-eu-west-1.pem" ./scripts/docker-compose-and-run.sh ec2-user@52.208.180.163:~/docker-compose-and-run.sh  #jenkins cp's docker-compose-and-run to aws server
 exit 0
