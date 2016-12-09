@@ -62,7 +62,8 @@
 - __Then__ [X Won]
 
 ##Draw on last move
-- __Given__ O|X|X
+- __Given__ 
+            O|X|X
             X|X|O
             O|O|
 - __When__ [ Place(2,2,X)]
