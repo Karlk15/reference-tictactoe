@@ -5,7 +5,7 @@ services:
       - PGPOST=NODE_ENV                      # NODE_ENV production environment vantar eh fix
       - PGPORT=5432                          # postgres port
       - PORT=80                              # Amazon Instance runs on port 80
-    image: 'karlk15/reference-tictactoe'     # Docker image   ${GIT_COMMIT}
+    image: 'karlk15/reference-tictactoe:latest'     # Docker image   ${GIT_COMMIT}
     depends_on:
       - postgres
     ports:
