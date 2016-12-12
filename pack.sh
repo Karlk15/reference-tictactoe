@@ -52,7 +52,7 @@ cp ./scripts/runner.sh ./build/
 cd build
 echo Building docker image
 #taka sudo ef eg get seinna
-docker build -t karlk15/reference-tictactoe:$GIT_COMMIT .
+docker build -t karlk15/reference-tictactoe .   #$GIT_COMMIT
 
 rc=$?
 if [[ $rc != 0 ]] ; then
@@ -60,7 +60,7 @@ if [[ $rc != 0 ]] ; then
     exit $rc
 fi
 
-docker push karlk15/reference-tictactoe:$GIT_COMMIT
+docker push karlk15/reference-tictactoe        #$GIT_COMMIT
 
 rc=$?
 if [[ $rc != 0 ]] ; then
