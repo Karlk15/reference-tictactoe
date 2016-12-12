@@ -43,16 +43,27 @@ module.exports = function(injected){
                         }]);
                     },
                       "PlaceMove": function (cmd) {
+                        if(gameState.occupiedPos(cmd.pos)){
+                            eventHandler( [{
+                                gameId: cmd.gameId,
+                                type: "IllegalMove",
+                                user: cmd.user,
+                                name: cmd.name,
+                                timeStamp: cmd.timeStamp,
+                                pos: cmd.pos
+                            }]);
+                            return;
+                        }
 
-                          eventHandler([{
-                              gameId: cmd.gameId,
-                              type: "Placed",
-                              user: cmd.user,
-                              name: cmd.name,
-                              timeStamp: cmd.timeStamp,
-                              pos: cmd.pos,
-                              side:'X'
-                          }]);
+                        eventHandler([{
+                            gameId: cmd.gameId,
+                            type: "MovePlaced",
+                            user: cmd.user,
+                            name: cmd.name,
+                            timeStamp: cmd.timeStamp,
+                            pos: cmd.pos,
+                            side:'X'
+                        }]);
 
                         // Check here for conditions which prevent command from altering state
 

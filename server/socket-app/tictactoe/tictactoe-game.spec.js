@@ -19,7 +19,7 @@ var createEvent = {
 var joinEvent = {
     type: "GameJoined",
     user: {
-        userName: "Gummi"
+        userName: "kalli"
     },
     name: "TheFirstGame",
     timeStamp: "2014-12-02T11:29:29"
@@ -93,24 +93,25 @@ describe('join game command', function () {
 
     it('should emit game joined event...', function () {
 
-        given = [{
-            type: "GameCreated",
-            user: {
-                userName: "TheGuy"
-            },
-            name: "TheFirstGame",
-            timeStamp: "2014-12-02T11:29:29"
-        }
+        given = [
+            {
+                type: "GameCreated",
+                user: {
+                    userName: "TheGuy"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29"
+            }
         ];
         when =
-        {
-            type: "JoinGame",
-            user: {
-                userName: "Gummi"
-            },
-            name: "TheFirstGame",
-            timeStamp: "2014-12-02T11:29:29"
-        };
+            {
+                type: "JoinGame",
+                user: {
+                    userName: "Gummi"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29"
+            };
         then = [
             {
                 type: "GameJoined",
@@ -122,49 +123,48 @@ describe('join game command', function () {
                 side:'O'
             }
         ];
-
     });
 
     it('should emit FullGameJoinAttempted event when game full..implement this', function () {
-      given = [
-          {
-              type: "GameCreated",
-              user: {
-                  userName: "TheGuy"
-              },
-              name: "TheFirstGame",
-              timeStamp: "2014-12-02T11:29:29"
-          },
-          {
-              type: "GameJoined",
-              user: {
-                  userName: "Gummi"
-              },
-              name: "TheFirstGame",
-              timeStamp: "2014-12-02T11:29:29",
-              side:'O'
-          }
-      ];
-      when =
-         {
-              type: "JoinGame",
-              user: {
-                  userName: "kalli"
-              },
-              name: "TheFirstGame",
-              timeStamp: "2014-12-02T11:30:29"
-         };
-      then = [
-         {
-              type: "FullGameJoinAttempted",
-              user: {
-                  userName: "kalli"
-              },
-              name: "TheFirstGame",
-              timeStamp: "2014-12-02T11:30:29"
-         }
-      ];
-    });
+        given = [
+            {
+                type: "GameCreated",
+                user: {
+                    userName: "TheGuy"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29"
+            },
+            {
+                type: "GameJoined",
+                user: {
+                    userName: "kalli"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                side:'O'
+            }
+        ];
+        when =
+           {
+                type: "JoinGame",
+                user: {
+                    userName: "beggi"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:30:29"
+           };
+        then = [
+           {
+                type: "FullGameJoinAttempted",
+                user: {
+                    userName: "beggi"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:30:29"
+           }
+        ];
+      });
 });
 
 
@@ -188,47 +188,100 @@ describe('Place move command', function() {
 
 
     it('should emit MovePlaced on first game move...', function () {
-      given = [
-          {
-              type: "GameCreated",
-              user: {
-                  userName: "TheGuy"
-              },
-              name: "TheFirstGame",
-              timeStamp: "2014-12-02T11:29:29"
-          },
-          {
-              type: "GameJoined",
-              user: {
-                  userName: "Gummi"
-              },
-              name: "TheFirstGame",
-              timeStamp: "2014-12-02T11:29:29",
-              side:'O'
-          }
-      ];
-      when =
-      {
-          type: "PlaceMove",
-          user: {
-              userName: "TheGuy"
-          },
-          name: "TheFirstGame",
-          timeStamp: "2014-12-02T11:29:29",
-          pos:"0,2",
-          side:'X'
-      };
-      then = [
-         {
-              type: "Placed",
-              user: {
-                  userName: "TheGuy"
-              },
-              name: "TheFirstGame",
-              timeStamp: "2014-12-02T11:29:29",
-              pos: "0,2",
-              side:'X'
-         }
-      ];
+        given = [
+            {
+                type: "GameCreated",
+                user: {
+                    userName: "TheGuy"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29"
+            },
+            {
+                type: "GameJoined",
+                user: {
+                    userName: "kalli"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                side:'O'
+            }
+        ];
+        when =
+           {
+                type: "PlaceMove",
+                user: {
+                    userName: "TheGuy"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                pos:"2",
+                side:'X'
+           };
+        then = [
+            {
+                type: "MovePlaced",
+                user: {
+                    userName: "TheGuy"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                pos: "2",
+                side:'X'
+            }
+        ];
     });
+    it('should emit IllegalMove when square is already occupied...', function () {
+        given = [
+            {
+                type: "GameCreated",
+                user: {
+                    userName: "TheGuy"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29"
+            },
+            {
+                type: "GameJoined",
+                user: {
+                    userName: "kalli"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                side:'O'
+            },
+            {
+                type: "MovePlaced",
+                user: {
+                   userName: "TheGuy"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                pos: "2",
+                side:'X'
+            }
+        ];
+        when =
+            {
+                type: "PlaceMove",
+                user: {
+                    userName: "kalli"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                pos: "2",
+                side:'O'
+            };
+        then = [
+            {
+                type: "IllegalMove",
+                user: {
+                    userName: "kalli"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                pos: "2"
+            }
+        ];
+      });
 });

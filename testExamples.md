@@ -25,8 +25,8 @@
 - __Then__ [ Placed(0,2,X) ]
 
 ##should emit IllegalMove when square is already occupied
-- __Given__ that GameCreated and GameJoined, [ Placed(0,0,X) ]
-- __When__ [ Place(0,0,O) ]
+- __Given__ that GameCreated and GameJoined, [ Placed(0,2,X) ]
+- __When__ [ Place(0,2,O) ]
 - __Then__ [Invalid Move message]
 
 ##Should emit NotYourMove if attempting to make move out of turn
