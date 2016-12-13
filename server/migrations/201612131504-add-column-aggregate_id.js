@@ -16,5 +16,9 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db,callback) {
   db.addColumn('eventlog',
-  aggregate_id:{type: 'string'},
+  'aggregate_id',{type: 'string'},
   callback);};
+
+  exports._meta = {
+    "version": 1
+  };
