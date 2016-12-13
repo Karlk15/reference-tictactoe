@@ -51,7 +51,7 @@ cp ./scripts/runner.sh ./build/
 
 cd build
 echo Building docker image
-#taka sudo ef eg get seinna
+
 docker build -t karlk15/reference-tictactoe:$GIT_COMMIT .
 
 rc=$?
