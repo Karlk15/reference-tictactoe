@@ -9,7 +9,7 @@ set -e
   npm install           # installs npm should only be localy
   cd ..
   cd scripts
-  ./cleanImages.#!/bin/sh
+  ./cleanImages.sh        
   cd..
   ./pack.sh             # run pack script
   scp -o StrictHostKeyChecking=no -i "~/workspace/TicTacToe_Deploy/KarlUser-key-pair-eu-west-1.pem" ./docker-compose.yaml ec2-user@52.208.180.163:~/docker-compose.yaml  #jenkins cp's docker-compose to aws server
