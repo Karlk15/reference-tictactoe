@@ -1,2 +1,2 @@
 #!/bin/bash
-docker rmi $(docker images -q) # removes all images
+docker rmi $(docker images -qa) # removes all images
