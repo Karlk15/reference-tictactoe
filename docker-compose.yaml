@@ -2,7 +2,6 @@ version: '2'
 services:
   server:
     environment:
-      - PGPOST=postgres
       - NODE_ENV=production                  # lets NODE_ENV know that is production
       - PGPORT=5432                          # postgres port
       - PORT=80                              # Amazon Instance runs on port 80
