@@ -1,9 +1,9 @@
-var should = require('should');
-var _ = require('lodash');
+var should = require("should");
+var _ = require("lodash");
 
-var TictactoeState = require('./tictactoe-state')(inject({}));
+var TictactoeState = require("./tictactoe-state")(inject({}));
 
-var tictactoe = require('./tictactoe-handler')(inject({
+var tictactoe = require("./tictactoe-handler")(inject({
     TictactoeState
 }));
 
@@ -26,7 +26,7 @@ var joinEvent = {
 };
 
 
-describe('create game command', function() {
+describe("create game command", function() {
 
 
     var given, when, then;
@@ -44,7 +44,7 @@ describe('create game command', function() {
     });
 
 
-    it('should emit game created event', function(){
+    it("should emit game created event", function(){
 
         given = [];
         when =
@@ -65,7 +65,7 @@ describe('create game command', function() {
                 },
                 name: "TheFirstGame",
                 timeStamp: "2014-12-02T11:29:29",
-                side:'X'
+                side:"X"
             }
         ];
 
@@ -73,7 +73,7 @@ describe('create game command', function() {
 });
 
 
-describe('join game command', function () {
+describe("join game command", function () {
 
 
     var given, when, then;
@@ -91,7 +91,7 @@ describe('join game command', function () {
     });
 
 
-    it('should emit game joined event...', function () {
+    it("should emit game joined event...", function () {
 
         given = [
             {
@@ -120,12 +120,12 @@ describe('join game command', function () {
                 },
                 name: "TheFirstGame",
                 timeStamp: "2014-12-02T11:29:29",
-                side:'O'
+                side:"O"
             }
         ];
     });
 
-    it('should emit FullGameJoinAttempted event when game full..implement this', function () {
+    it("should emit FullGameJoinAttempted event when game full..implement this", function () {
         given = [
             {
                 type: "GameCreated",
@@ -142,7 +142,7 @@ describe('join game command', function () {
                 },
                 name: "TheFirstGame",
                 timeStamp: "2014-12-02T11:29:29",
-                side:'O'
+                side:"O"
             }
         ];
         when =
@@ -168,8 +168,7 @@ describe('join game command', function () {
 });
 
 
-
-describe('Place move command', function() {
+describe("Place move command", function() {
 
 
     var given, when, then;
@@ -187,7 +186,7 @@ describe('Place move command', function() {
     });
 
 
-    it('should emit MovePlaced on first game move...', function () {
+    it("should emit MovePlaced on first game move...", function () {
         given = [
             {
                 type: "GameCreated",
@@ -204,7 +203,7 @@ describe('Place move command', function() {
                 },
                 name: "TheFirstGame",
                 timeStamp: "2014-12-02T11:29:29",
-                side:'O'
+                side:"O"
             }
         ];
         when =
@@ -216,7 +215,7 @@ describe('Place move command', function() {
                 name: "TheFirstGame",
                 timeStamp: "2014-12-02T11:29:29",
                 pos:"2",
-                side:'X'
+                side:"X"
            };
         then = [
             {
@@ -227,11 +226,12 @@ describe('Place move command', function() {
                 name: "TheFirstGame",
                 timeStamp: "2014-12-02T11:29:29",
                 pos: "2",
-                side:'X'
+                side:"X"
             }
         ];
     });
-    it('should emit IllegalMove when square is already occupied...', function () {
+
+    it("should emit IllegalMove when square is already occupied...", function () {
         given = [
             {
                 type: "GameCreated",
@@ -248,7 +248,7 @@ describe('Place move command', function() {
                 },
                 name: "TheFirstGame",
                 timeStamp: "2014-12-02T11:29:29",
-                side:'O'
+                side:"O"
             },
             {
                 type: "MovePlaced",
@@ -258,7 +258,7 @@ describe('Place move command', function() {
                 name: "TheFirstGame",
                 timeStamp: "2014-12-02T11:29:29",
                 pos: "2",
-                side:'X'
+                side:"X"
             }
         ];
         when =
@@ -270,7 +270,7 @@ describe('Place move command', function() {
                 name: "TheFirstGame",
                 timeStamp: "2014-12-02T11:29:29",
                 pos: "2",
-                side:'O'
+                side:"O"
             };
         then = [
             {
@@ -284,4 +284,58 @@ describe('Place move command', function() {
             }
         ];
       });
+
+    it("Should emit NotYourMove if attempting to make move out of turn...", function () {
+        given = [
+            {
+                type: "GameCreated",
+                user: {
+                    userName: "TheGuy"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29"
+            },
+            {
+                type: "GameJoined",
+                user: {
+                    userName: "kalli"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                side:"O"
+            },
+            {
+                type: "MovePlaced",
+                user: {
+                    userName: "TheGuy"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                pos: "2",
+                side:"X"
+            }
+        ];
+        when =
+           {
+                type: "PlaceMove",
+                user: {
+                    userName: "TheGuy"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                pos: "1",
+                side:"X"
+           };
+       then = [
+           {
+               type: "NotYourMove",
+               user: {
+                   userName: "TheGuy"
+               },
+               name: "TheFirstGame",
+               timeStamp: "2014-12-02T11:29:29",
+               side:"X"
+           }
+       ];
+    });
 });
