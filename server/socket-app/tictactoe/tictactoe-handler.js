@@ -68,18 +68,7 @@ module.exports = function(injected){
                             return;
                         }
 
-                        if(gameState.winHorizontally(cmd)){
-                            eventHandler( [{
-                                gameId: cmd.gameId,
-                                type: "GameWon",
-                                user: cmd.user,
-                                name: cmd.name,
-                                timeStamp: cmd.timeStamp,
-                                side: cmd.side
-                            }]);
-                            return;
-                        }
-                        if(gameState.winVertically(cmd)){
+                        if(gameState.checkForWin(cmd)){
                             eventHandler( [{
                                 gameId: cmd.gameId,
                                 type: "GameWon",
@@ -91,14 +80,12 @@ module.exports = function(injected){
                             return;
                         }
 
-                        if(gameState.winDiagonally(cmd)){
+                        if(gameState.checkForDraw(cmd)){
                             eventHandler( [{
                                 gameId: cmd.gameId,
-                                type: "GameWon",
-                                user: cmd.user,
+                                type: "Draw",
                                 name: cmd.name,
                                 timeStamp: cmd.timeStamp,
-                                side: cmd.side
                             }]);
                             return;
                         }

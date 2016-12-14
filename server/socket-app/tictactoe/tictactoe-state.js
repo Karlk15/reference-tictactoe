@@ -61,7 +61,6 @@ module.exports = function (injected) {
             */
         }
 
-
         function winDiagonally(event){
 
             Grid[event.pos] = event.side;
@@ -74,6 +73,27 @@ module.exports = function (injected) {
             }
 
             return false;
+        }
+
+        function checkForWin(event){
+
+            if(winHorizontally(event)|| winVertically(event)|| winDiagonally(event)){
+                return true;
+            }
+
+            else return false;
+        }
+
+        function checkForDraw(event){
+
+          Grid[event.pos] = event.side;
+
+            for(var i = 0; i < 9; i++){
+                if(Grid[i] != null ){
+                    return true;
+                }
+                return false;
+            }
         }
 
         function notYourMove(event) {
@@ -112,9 +132,8 @@ module.exports = function (injected) {
             gameFull:gameFull,
             notYourMove:notYourMove,
             occupiedPos:occupiedPos,
-            winHorizontally:winHorizontally,
-            winVertically:winVertically,
-            winDiagonally:winDiagonally,
+            checkForWin:checkForWin,
+            checkForDraw:checkForDraw,
             processEvents: processEvents
         }
     };
