@@ -30,8 +30,8 @@
 - __Then__ [Invalid Move message]
 
 ##Should emit NotYourMove if attempting to make move out of turn
-- __Given__ that GameCreated and GameJoined, [ Placed(0,0,X), Placed(1,2,O) ]
-- __When__ [ Place(2,0,O) ]
+- __Given__ that GameCreated and GameJoined, [ Placed(0,2,X) ]
+- __When__ [ Place(2,0,X) ]
 - __Then__ [NotYourMove message] shows up
 
 ##Player wins horizontally from left corner to right corner
