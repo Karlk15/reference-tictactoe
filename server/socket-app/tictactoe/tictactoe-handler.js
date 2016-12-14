@@ -42,37 +42,50 @@ module.exports = function(injected){
                             side:'O'
                         }]);
                     },
-                      "PlaceMove": function (cmd) {
-                        if(gameState.occupiedPos(cmd.pos)){
-                            eventHandler( [{
-                                gameId: cmd.gameId,
-                                type: "IllegalMove",
-                                user: cmd.user,
-                                name: cmd.name,
-                                timeStamp: cmd.timeStamp,
-                                pos: cmd.pos
-                            }]);
-                            return;
-                        }
+                    "PlaceMove": function (cmd) {
 
-                        eventHandler([{
-                            gameId: cmd.gameId,
-                            type: "MovePlaced",
-                            user: cmd.user,
-                            name: cmd.name,
-                            timeStamp: cmd.timeStamp,
-                            pos: cmd.pos,
-                            side:'X'
-                        }]);
+                      if(gameState.notYourMove(cmd.side)){
+                          eventHandler( [{
+                              gameId: cmd.gameId,
+                              type: "NotYourMove",
+                              user: cmd.user,
+                              name: cmd.name,
+                              timeStamp: cmd.timeStamp,
+                              side: cmd.side
+                          }]);
+                          return;
+                      }
 
-                        // Check here for conditions which prevent command from altering state
+                      if(gameState.occupiedPos(cmd.pos)){
+                          eventHandler( [{
+                              gameId: cmd.gameId,
+                              type: "IllegalMove",
+                              user: cmd.user,
+                              name: cmd.name,
+                              timeStamp: cmd.timeStamp,
+                              pos: cmd.pos
+                          }]);
+                          return;
+                      }
 
-                        //gameState.processEvents(events);
+                      eventHandler([{
+                          gameId: cmd.gameId,
+                          type: "MovePlaced",
+                          user: cmd.user,
+                          name: cmd.name,
+                          timeStamp: cmd.timeStamp,
+                          pos: cmd.pos,
+                          side:'X'
+                      }]);
 
-                        // Check here for conditions which may warrant additional events to be emitted.
-                        //eventHandler(events);
-                    }
-                };
+                      // Check here for conditions which prevent command from altering state
+
+                      //gameState.processEvents(events);
+
+                      // Check here for conditions which may warrant additional events to be emitted.
+                      //eventHandler(events);
+                  }
+              };
 
                 if(!cmdHandlers[cmd.type]){
                     throw new Error("I do not handle command of type " + cmd.type)
