@@ -23,7 +23,7 @@ module.exports = function (injected) {
             }
         }
 
-        function wonHorizontally(event) {
+        function winHorizontally(event) {
             Grid[event.pos] = event.side;
             for(var i = 0; i < 9;i+3){
                 //console.log(Grid);
@@ -39,6 +39,18 @@ module.exports = function (injected) {
             return false;
             */
         }
+
+        function winVertically(event) {
+            Grid[event.pos] = event.side;
+
+            if(Grid[0] == "X" && Grid[3] == "X" && Grid[6] == "X"){
+                return true;
+            }
+            return false;
+
+        }
+
+
 
         function notYourMove(event) {
 
@@ -76,7 +88,8 @@ module.exports = function (injected) {
             gameFull:gameFull,
             notYourMove:notYourMove,
             occupiedPos:occupiedPos,
-            wonHorizontally:wonHorizontally,
+            winHorizontally:winHorizontally,
+            winVertically:winVertically,
             processEvents: processEvents
         }
     };
