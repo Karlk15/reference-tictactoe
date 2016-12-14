@@ -26,11 +26,20 @@ module.exports = function (injected) {
         function wonHorizontally(event) {
 
             Grid[event.pos] = event.side;
-            
+
+            for(var i = 0; i < 9;i+3){
+                console.log(Grid);
+                if(Grid[i] == "X" && Grid[i+1] == "X" && Grid[i+2] == "X"){
+                    return true
+                }
+                return false;
+            }
+            /*
             if(Grid[0] == "X" && Grid[1] == "X" && Grid[2] == "X"){
                 return true;
             }
             return false;
+            */
         }
 
         function notYourMove(event) {
