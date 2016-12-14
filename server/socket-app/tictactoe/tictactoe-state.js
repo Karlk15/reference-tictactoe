@@ -24,7 +24,9 @@ module.exports = function (injected) {
         }
 
         function winHorizontally(event) {
+
             Grid[event.pos] = event.side;
+
             for(var i = 0; i < 9;i+3){
                 //console.log(Grid);
                 if(Grid[i] == PlayerTurns && Grid[i+1] == PlayerTurns && Grid[i+2] == PlayerTurns){
@@ -41,11 +43,12 @@ module.exports = function (injected) {
         }
 
         function winVertically(event) {
+
             Grid[event.pos] = event.side;
 
             for(var i = 0; i < 3;i++){
-                console.log(Grid);
-                if(Grid[i] == "X" && Grid[i+3] == "X" && Grid[i+6] == "X"){
+                //console.log(Grid);
+                if(Grid[i] == PlayerTurns && Grid[i+3] == PlayerTurns && Grid[i+6] == PlayerTurns){
                     return true
                 }
                 return false;
@@ -54,12 +57,24 @@ module.exports = function (injected) {
             if(Grid[0] == "X" && Grid[3] == "X" && Grid[6] == "X"){
                 return true;
             }
-            */
             return false;
-
+            */
         }
 
 
+        function winDiagonally(event){
+
+            Grid[event.pos] = event.side;
+            //console.log(Grid);
+            if(Grid[0] == PlayerTurns && Grid[4] == PlayerTurns && Grid[8] == PlayerTurns){
+                return true;
+            }
+            if(Grid[2] == PlayerTurns && Grid[4] == PlayerTurns && Grid[6] == PlayerTurns){
+                return true;
+            }
+
+            return false;
+        }
 
         function notYourMove(event) {
 
@@ -99,6 +114,7 @@ module.exports = function (injected) {
             occupiedPos:occupiedPos,
             winHorizontally:winHorizontally,
             winVertically:winVertically,
+            winDiagonally:winDiagonally,
             processEvents: processEvents
         }
     };
