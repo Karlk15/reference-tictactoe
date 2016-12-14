@@ -24,12 +24,10 @@ module.exports = function (injected) {
         }
 
         function wonHorizontally(event) {
-
             Grid[event.pos] = event.side;
-
             for(var i = 0; i < 9;i+3){
-                console.log(Grid);
-                if(Grid[i] == "X" && Grid[i+1] == "X" && Grid[i+2] == "X"){
+                //console.log(Grid);
+                if(Grid[i] == PlayerTurns && Grid[i+1] == PlayerTurns && Grid[i+2] == PlayerTurns){
                     return true
                 }
                 return false;
