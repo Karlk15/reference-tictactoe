@@ -43,9 +43,18 @@ module.exports = function (injected) {
         function winVertically(event) {
             Grid[event.pos] = event.side;
 
+            for(var i = 0; i < 3;i++){
+                console.log(Grid);
+                if(Grid[i] == "X" && Grid[i+3] == "X" && Grid[i+6] == "X"){
+                    return true
+                }
+                return false;
+            }
+            /*
             if(Grid[0] == "X" && Grid[3] == "X" && Grid[6] == "X"){
                 return true;
             }
+            */
             return false;
 
         }
