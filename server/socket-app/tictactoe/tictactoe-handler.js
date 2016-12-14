@@ -1,6 +1,6 @@
 
 module.exports = function(injected){
-    var TictactoeState = injected('TictactoeState');
+    var TictactoeState = injected("TictactoeState");
 
     return function(history){
 
@@ -17,7 +17,7 @@ module.exports = function(injected){
                             user: cmd.user,
                             name: cmd.name,
                             timeStamp: cmd.timeStamp,
-                            side:'X'
+                            side:"X"
                         }]);
 
                     },
@@ -39,44 +39,56 @@ module.exports = function(injected){
                             user: cmd.user,
                             name: cmd.name,
                             timeStamp: cmd.timeStamp,
-                            side:'O'
+                            side:"O"
                         }]);
                     },
                     "PlaceMove": function (cmd) {
 
-                      if(gameState.notYourMove(cmd.side)){
-                          eventHandler( [{
-                              gameId: cmd.gameId,
-                              type: "NotYourMove",
-                              user: cmd.user,
-                              name: cmd.name,
-                              timeStamp: cmd.timeStamp,
-                              side: cmd.side
-                          }]);
-                          return;
-                      }
+                        if(gameState.notYourMove(cmd)){
+                            eventHandler( [{
+                                gameId: cmd.gameId,
+                                type: "NotYourMove",
+                                user: cmd.user,
+                                name: cmd.name,
+                                timeStamp: cmd.timeStamp,
+                                side: cmd.side
+                            }]);
+                            return;
+                        }
 
-                      if(gameState.occupiedPos(cmd.pos)){
-                          eventHandler( [{
-                              gameId: cmd.gameId,
-                              type: "IllegalMove",
-                              user: cmd.user,
-                              name: cmd.name,
-                              timeStamp: cmd.timeStamp,
-                              pos: cmd.pos
-                          }]);
-                          return;
-                      }
+                        if(gameState.occupiedPos(cmd.pos)){
+                            eventHandler( [{
+                                gameId: cmd.gameId,
+                                type: "IllegalMove",
+                                user: cmd.user,
+                                name: cmd.name,
+                                timeStamp: cmd.timeStamp,
+                                pos: cmd.pos
+                            }]);
+                            return;
+                        }
 
-                      eventHandler([{
-                          gameId: cmd.gameId,
-                          type: "MovePlaced",
-                          user: cmd.user,
-                          name: cmd.name,
-                          timeStamp: cmd.timeStamp,
-                          pos: cmd.pos,
-                          side:'X'
-                      }]);
+                        if(gameState.wonHorizontally(cmd)){
+                            eventHandler( [{
+                                gameId: cmd.gameId,
+                                type: "GameWon",
+                                user: cmd.user,
+                                name: cmd.name,
+                                timeStamp: cmd.timeStamp,
+                                side: cmd.side
+                            }]);
+                            return;
+                        }
+
+                        eventHandler([{
+                            gameId: cmd.gameId,
+                            type: "MovePlaced",
+                            user: cmd.user,
+                            name: cmd.name,
+                            timeStamp: cmd.timeStamp,
+                            pos: cmd.pos,
+                            side:"X"
+                        }]);
 
                       // Check here for conditions which prevent command from altering state
 

@@ -6,7 +6,7 @@ module.exports = function (injected) {
 
         var GameFull = false;
         var Grid = new Array(9);
-        var PlayerTurns = 'X';
+        var PlayerTurns = "X";
         var NotYourMove = false;
 
         function processEvent(event) {
@@ -19,14 +19,23 @@ module.exports = function (injected) {
             if(event.type == "MovePlaced")
             {
                 Grid[event.pos] = event.side;
-                console.log(Grid);
-                tooglePlayer();
+                togglePlayer();
             }
         }
 
-        function notYourMove (side){
+        function wonHorizontally(event) {
 
-            if(side != PlayerTurns){
+            Grid[event.pos] = event.side;
+            
+            if(Grid[0] == "X" && Grid[1] == "X" && Grid[2] == "X"){
+                return true;
+            }
+            return false;
+        }
+
+        function notYourMove(event) {
+
+            if(event.side != PlayerTurns) {
                  return true;
             }
             else{
@@ -34,12 +43,12 @@ module.exports = function (injected) {
             }
         }
 
-        function tooglePlayer (){
-            if(PlayerTurns = 'X'){
-                PlayerTurns = 'O';
+        function togglePlayer () {
+            if(PlayerTurns == "X"){
+                PlayerTurns = "O";
                 return;
             }
-            PlayerTurns = 'X';
+            PlayerTurns = "X";
         }
 
         function processEvents(history) {
@@ -50,16 +59,17 @@ module.exports = function (injected) {
             return GameFull;
         }
 
-        function occupiedPos(pos){
+        function occupiedPos(pos) {
             return Grid[pos] != null;
         }
 
         processEvents(history);
 
         return {
+            gameFull:gameFull,
             notYourMove:notYourMove,
             occupiedPos:occupiedPos,
-            gameFull:gameFull,
+            wonHorizontally:wonHorizontally,
             processEvents: processEvents
         }
     };

@@ -338,4 +338,88 @@ describe("Place move command", function() {
            }
        ];
     });
+
+    it("Player wins horizontally from left corner to right corner...", function () {
+        given = [
+            {
+                type: "GameCreated",
+                user: {
+                    userName: "TheGuy"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29"
+            },
+            {
+                type: "GameJoined",
+                user: {
+                    userName: "kalli"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                side:"O"
+            },
+            {
+                type: "MovePlaced",
+                user: {
+                    userName: "TheGuy"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                pos: "0",
+                side:"X"
+            },
+            {
+                type: "MovePlaced",
+                user: {
+                    userName: "kalli"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                pos: "4",
+                side:"O"
+            },
+            {
+                type: "MovePlaced",
+                user: {
+                    userName: "TheGuy"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                pos: "1",
+                side:"X"
+            },
+            {
+                type: "MovePlaced",
+                user: {
+                    userName: "kalli"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                pos: "6",
+                side:"O"
+            },
+        ];
+        when =
+           {
+                type: "PlaceMove",
+                user: {
+                    userName: "TheGuy"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                pos: "2",
+                side:"X"
+           };
+       then = [
+           {
+               type: "GameWon",
+               user: {
+                   userName: "TheGuy"
+               },
+               name: "TheFirstGame",
+               timeStamp: "2014-12-02T11:29:29",
+               side:"X"
+           }
+       ];
+    });
 });
