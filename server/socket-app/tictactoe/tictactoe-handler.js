@@ -43,6 +43,7 @@ module.exports = function(injected){
                         }]);
                     },
                     "PlaceMove": function (cmd) {
+                        var events = [];
 
                         if(gameState.notYourMove(cmd)){
                             eventHandler( [{
@@ -67,38 +68,37 @@ module.exports = function(injected){
                             }]);
                             return;
                         }
-
-                        if(gameState.checkForWin(cmd)){
-                            eventHandler( [{
-                                gameId: cmd.gameId,
-                                type: "GameWon",
-                                user: cmd.user,
-                                name: cmd.name,
-                                timeStamp: cmd.timeStamp,
-                                side: cmd.side
-                            }]);
-                            return;
-                        }
-
-                        if(gameState.checkForDraw(cmd)){
-                            eventHandler( [{
-                                gameId: cmd.gameId,
-                                type: "Draw",
-                                name: cmd.name,
-                                timeStamp: cmd.timeStamp,
-                            }]);
-                            return;
-                        }
-
-                        eventHandler([{
+                        events.push({
                             gameId: cmd.gameId,
                             type: "MovePlaced",
                             user: cmd.user,
                             name: cmd.name,
                             timeStamp: cmd.timeStamp,
                             pos: cmd.pos,
-                            side:"X"
-                        }]);
+                            side:cmd.side
+                        })
+                        gameState.processEvents(events)
+
+                        if(gameState.checkForWin(cmd)){
+                            events.push( {
+                                gameId: cmd.gameId,
+                                type: "GameWon",
+                                user: cmd.user,
+                                name: cmd.name,
+                                timeStamp: cmd.timeStamp,
+                                side: cmd.side
+                            });
+                        }
+                        else if(gameState.checkForDraw(cmd)){
+                            events.push( {
+                                gameId: cmd.gameId,
+                                type: "Draw",
+                                name: cmd.name,
+                                timeStamp: cmd.timeStamp,
+                            } );
+                        }
+
+                        eventHandler(events);
 
                       // Check here for conditions which prevent command from altering state
 
