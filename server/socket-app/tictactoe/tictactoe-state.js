@@ -25,50 +25,32 @@ module.exports = function (injected) {
 
         function winHorizontally(event) {
 
-            Grid[event.pos] = event.side;
-
             for(var i = 0; i < 9;i+3){
                 //console.log(Grid);
-                if(Grid[i] == PlayerTurns && Grid[i+1] == PlayerTurns && Grid[i+2] == PlayerTurns){
+                if(Grid[i] == event.side && Grid[i+1] == event.side && Grid[i+2] == event.side){
                     return true
                 }
                 return false;
             }
-            /*
-            if(Grid[0] == "X" && Grid[1] == "X" && Grid[2] == "X"){
-                return true;
-            }
-            return false;
-            */
         }
 
         function winVertically(event) {
 
-            Grid[event.pos] = event.side;
-
             for(var i = 0; i < 3;i++){
                 //console.log(Grid);
-                if(Grid[i] == PlayerTurns && Grid[i+3] == PlayerTurns && Grid[i+6] == PlayerTurns){
+                if(Grid[i] == event.side && Grid[i+3] == event.side && Grid[i+6] == event.side){
                     return true
                 }
                 return false;
             }
-            /*
-            if(Grid[0] == "X" && Grid[3] == "X" && Grid[6] == "X"){
-                return true;
-            }
-            return false;
-            */
         }
 
         function winDiagonally(event){
 
-            Grid[event.pos] = event.side;
-            //console.log(Grid);
-            if(Grid[0] == PlayerTurns && Grid[4] == PlayerTurns && Grid[8] == PlayerTurns){
+            if(Grid[0] == event.side && Grid[4] == event.side && Grid[8] == event.side){
                 return true;
             }
-            if(Grid[2] == PlayerTurns && Grid[4] == PlayerTurns && Grid[6] == PlayerTurns){
+            if(Grid[2] == event.side && Grid[4] == event.side && Grid[6] == event.side){
                 return true;
             }
 
@@ -85,8 +67,6 @@ module.exports = function (injected) {
         }
 
         function checkForDraw(event){
-
-          Grid[event.pos] = event.side;
 
             for(var i = 0; i < 9; i++){
                 if(Grid[i] != null ){
