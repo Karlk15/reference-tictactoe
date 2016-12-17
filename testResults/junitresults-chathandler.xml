@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
- <testsuite name="chat handler" timestamp="2016-12-14T21:13:10" hostname="localhost" time="0.004" errors="0" tests="3" skipped="0" failures="0">
-  <testcase classname="chat handler" name="should construct without error" time="0.003">
+ <testsuite name="chat handler" timestamp="2016-12-17T21:23:43" hostname="localhost" time="0.008" errors="0" tests="3" skipped="0" failures="0">
+  <testcase classname="chat handler" name="should construct without error" time="0.002">
   </testcase>
   <testcase classname="chat handler" name="should subscribe to chatCommand when started to handle commands" time="0.001">
   </testcase>
-  <testcase classname="chat handler" name="should issue messageReceived event on sendMessage command, with unique id" time="0">
+  <testcase classname="chat handler" name="should issue messageReceived event on sendMessage command, with unique id" time="0.001">
   </testcase>
  </testsuite>
 </testsuites>
