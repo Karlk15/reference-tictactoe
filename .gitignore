@@ -12,3 +12,4 @@ dockerCtoAserver.sh
 logs
 *.log
 npm-debug.log*
+testResults/*
