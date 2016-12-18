@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+ <testsuite name="User chat load test" timestamp="2016-12-18T23:15:02" hostname="localhost" time="4.42" errors="0" tests="1" skipped="0" failures="0">
+  <testcase classname="User chat load test" name="should connect and send 200  user messages within 15000ms" time="4.419">
+  </testcase>
+ </testsuite>
+</testsuites>

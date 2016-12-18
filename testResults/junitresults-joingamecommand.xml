@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+ <testsuite name="join game command" timestamp="2016-12-18T23:07:18" hostname="localhost" time="0.002" errors="0" tests="2" skipped="0" failures="0">
+  <testcase classname="join game command" name="should emit game joined event..." time="0.001">
+  </testcase>
+  <testcase classname="join game command" name="should emit FullGameJoinAttempted event when game full..implement this" time="0.001">
+  </testcase>
+ </testsuite>
+</testsuites>
