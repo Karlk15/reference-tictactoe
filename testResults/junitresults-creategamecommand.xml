@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuites>
- <testsuite name="create game command" timestamp="2016-12-18T15:54:34" hostname="localhost" time="0.006" errors="0" tests="1" skipped="0" failures="0">
-  <testcase classname="create game command" name="should emit game created event" time="0.006">
-  </testcase>
- </testsuite>
-</testsuites>
