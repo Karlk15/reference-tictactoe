@@ -9,4 +9,3 @@ cd client             # enters client
 rm -rf node_modules   # Remove node_modules from client
 npm cache clean
 npm install           # installs npm should only be localy
-cd ..
