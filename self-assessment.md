@@ -35,17 +35,17 @@ Outline what tests you created.
 
 - UnitTests, server logic TDD (Git commit log) ? 
 
-	Create game command
+	__Create game command__
 
 	✔ should emit game created event
 
-	Join game command
+	__Join game command__
 
 	 ✔ should emit game joined event...
 	 
 	 ✔ should emit FullGameJoinAttempted event when game full..implement this
 
-	Place move command
+	__Place move command__
 
 	✔ should emit MovePlaced on first game move...
 	
@@ -67,23 +67,23 @@ Outline what tests you created.
 
 - API Acceptance test - fluent API?
 
-	User chat API
+	__User chat API__
 	
 	✔ should get user session information on connect
 	
 	✔ should receive chat message back after sending chat command
 
-	Tictactoe API
+	__Tictactoe API__
 	
   	✔ should be able to play game to end
 
 - Load test loop?
 
-	User chat load test
+	__User chat load test__
 	
 	✔ should connect and send 200  user messages within 15000ms
 	
-	Tictactoe load test
+	__Tictactoe load test__
 	
  	✔ should be able to play game to end 100 times within 30000ms
 	 
