@@ -42,35 +42,50 @@ Outline what tests you created.
 	Join game command
 
 	 ✔ should emit game joined event...
+	 
 	 ✔ should emit FullGameJoinAttempted event when game full..implement this
 
 	Place move command
 
 	✔ should emit MovePlaced on first game move...
+	
 	✔ should emit IllegalMove when square is already occupied...
+	
 	✔ Should emit NotYourMove if attempting to make move out of turn...
+	
 	✔ Player wins horizontally from left corner to right corner...
+	
 	✔ Should emit game won vertically from left corner down...
+	
 	✔ Should emit game won on Left corner cross down to right corner...
+	
 	✔ Should emit game won right corner cross down to left corner...
+	
 	✔ Should not emit game draw if won on last move...
+	
 	✔ Should emit game draw when neither wins...
 
 - API Acceptance test - fluent API?
+
 	User chat API
 	
 	✔ should get user session information on connect
+	
 	✔ should receive chat message back after sending chat command
 
 	Tictactoe API
-  ✔ should be able to play game to end
+	
+  	✔ should be able to play game to end
 
 - Load test loop?
 
 	User chat load test
+	
 	✔ should connect and send 200  user messages within 15000ms
+	
 	Tictactoe load test
-  ✔ should be able to play game to end 100 times within 30000ms
+	
+ 	✔ should be able to play game to end 100 times within 30000ms
 	 
 - UI TDD?  __Unfinished__
 	 
