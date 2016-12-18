@@ -127,7 +127,7 @@ Did you use any of the following features in Jenkins?
 - Jenkins file
 	- __No__
 - Test reports
-	- __YES__
+	- __Yes__
 - Other
 
 
