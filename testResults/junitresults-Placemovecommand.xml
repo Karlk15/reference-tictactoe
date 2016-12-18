@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
- <testsuite name="Place move command" timestamp="2016-12-18T14:37:58" hostname="localhost" time="0.011" errors="0" tests="9" skipped="0" failures="0">
-  <testcase classname="Place move command" name="should emit MovePlaced on first game move..." time="0.002">
+ <testsuite name="Place move command" timestamp="2016-12-18T15:54:34" hostname="localhost" time="0.008" errors="0" tests="9" skipped="0" failures="0">
+  <testcase classname="Place move command" name="should emit MovePlaced on first game move..." time="0.001">
   </testcase>
-  <testcase classname="Place move command" name="should emit IllegalMove when square is already occupied..." time="0.001">
+  <testcase classname="Place move command" name="should emit IllegalMove when square is already occupied..." time="0">
   </testcase>
   <testcase classname="Place move command" name="Should emit NotYourMove if attempting to make move out of turn..." time="0.001">
   </testcase>
   <testcase classname="Place move command" name="Player wins horizontally from left corner to right corner..." time="0.001">
   </testcase>
-  <testcase classname="Place move command" name="Should emit game won vertically from left corner down..." time="0.002">
+  <testcase classname="Place move command" name="Should emit game won vertically from left corner down..." time="0.001">
   </testcase>
   <testcase classname="Place move command" name="Should emit game won on Left corner cross down to right corner..." time="0.001">
   </testcase>
-  <testcase classname="Place move command" name="Should emit game won right corner cross down to left corner..." time="0.001">
+  <testcase classname="Place move command" name="Should emit game won right corner cross down to left corner..." time="0">
   </testcase>
   <testcase classname="Place move command" name="Should not emit game draw if won on last move..." time="0">
   </testcase>

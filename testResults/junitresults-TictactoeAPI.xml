@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+ <testsuite name="Tictactoe API" timestamp="2016-12-18T15:54:36" hostname="localhost" time="1.13" errors="0" tests="1" skipped="0" failures="0">
+  <testcase classname="Tictactoe API" name="should be able to play game to end" time="1.13">
+  </testcase>
+ </testsuite>
+</testsuites>
