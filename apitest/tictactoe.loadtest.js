@@ -13,7 +13,7 @@ const testAPI = TestAPI(inject({
     RoutingContext
 }));
 
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 35000;
 
 describe('Tictactoe load test', function(){
 
@@ -27,7 +27,7 @@ describe('Tictactoe load test', function(){
     });
 
     const count = 100;
-    const timelimit = 50000;
+    const timelimit = 20000;
 
     it('should be able to play game to end ' + count + ' times within '+ timelimit +'ms',function(done){
 
