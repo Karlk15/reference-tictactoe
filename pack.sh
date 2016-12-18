@@ -13,6 +13,7 @@ export GITHUB_URL=$(echo $GIT_URL | rev | cut -c 5- | rev)
 
 
 echo Building app
+# runs build from scripts in package.json
 npm run build
 
 rc=$?
