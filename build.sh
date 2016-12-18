@@ -7,4 +7,4 @@ cp -R server build/server      # copyies server and everything in it to build/se
 mkdir -p build/client/src      # creates a folder and parent folder src if necessary
 cp -r client/src/common build/client/src  # copies comon to client src and everything in it
 cp run.js build                # copies run.js to build
-cp runserver.sh build          # copies runserver.sh to build
+cp ./scripts/runner.sh build          # copies runserver.sh to build
