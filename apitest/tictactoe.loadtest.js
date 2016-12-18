@@ -13,7 +13,7 @@ const testAPI = TestAPI(inject({
     RoutingContext
 }));
 
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 35000;
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 40000;
 
 describe('Tictactoe load test', function(){
 
