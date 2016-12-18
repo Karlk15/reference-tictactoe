@@ -27,7 +27,7 @@ describe('Tictactoe load test', function(){
     });
 
     const count = 100;
-    const timelimit = 20000;
+    const timelimit = 30000;
 
     it('should be able to play game to end ' + count + ' times within '+ timelimit +'ms',function(done){
 

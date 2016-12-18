@@ -1,6 +1,6 @@
 FROM node
 WORKDIR .
-# copys everything from current directory to imgage
+# copys everything from current directory
 COPY . .
 # notifies that node path is in current directory
 ENV NODE_PATH .
